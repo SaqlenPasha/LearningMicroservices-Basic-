@@ -1,16 +1,21 @@
-server:
-  port:8082
 spring:
   datasource:
-    url: jdbc:h2:m2m:testdb
-    driver-class-name: org.h2.Driver
-    username: sa
-    password: ''
-  h2:
-    console:
-      enabled: true
+    url: jdbc:postgresql://localhost:5432/MicroServiceAccounts
+    username: postgres
+    password: root123
+    driver-class-name: org.postgresql.Driver
+    
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
-    show-sql: true
+      ddl-auto: update  # Options: create, create-drop, update, validate, none
+    show-sql: true      # Set to false in production
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true  # Set to false in production
+  
+# Optional: Logging configuration for database queries
+logging:
+  level:
+    org.hibernate.SQL: DEBUG           # Set to INFO or WARN in production
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE  # Set to INFO in production
