@@ -58,7 +58,7 @@ public class AccountsServiceImpl implements AccountsService {
 
 	@Override
 	public void updateAccount(CustomerDTO customer) {
-		
+
 		Customer existingCustomer = customerRepository.findByMobileNumber(customer.getMobileNumber())
 				.orElseThrow(() -> new ResourceNotFound(
 						"Customer with mobile number " + customer.getMobileNumber() + " does not exist."));
@@ -67,7 +67,17 @@ public class AccountsServiceImpl implements AccountsService {
 		existingCustomer.setEmail(customer.getEmail());
 
 		customerRepository.save(existingCustomer);
-		
+
+	}
+
+	@Override
+	public void deleteAccount(String mobileNumber) {
+
+		Customer customer = customerRepository.findByMobileNumber(mobileNumber).orElseThrow(
+				() -> new ResourceNotFound("Customer with mobile number " + mobileNumber + " does not exist."));
+
+		customerRepository.delete(customer);
+
 	}
 
 }

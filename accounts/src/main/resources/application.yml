@@ -4,7 +4,6 @@ spring:
     username: postgres
     password: root123
     driver-class-name: org.postgresql.Driver
-    
   jpa:
     hibernate:
       ddl-auto: update  # Options: create, create-drop, update, validate, none
@@ -13,7 +12,9 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
         format_sql: true  # Set to false in production
-  
+
+server:
+ port: 8087
 # Optional: Logging configuration for database queries
 logging:
   level:

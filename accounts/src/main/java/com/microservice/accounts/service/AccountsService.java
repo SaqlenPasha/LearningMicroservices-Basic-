@@ -7,4 +7,6 @@ public interface AccountsService {
 	public void createAccount(CustomerDTO customer);
 	
 	public void updateAccount(CustomerDTO customer);
+	
+	public void deleteAccount(String mobileNumber);
 }
