@@ -26,7 +26,7 @@ public class CommonExceptionHandler extends ResponseEntityExceptionHandler {
 
 		ErrorDetailsDTO errorDetails = new ErrorDetailsDTO(request.getDescription(false), "CUSTOMER_ALREADY_EXISTS",
 				ex.getMessage(), java.time.LocalDateTime.now());
-		return new ResponseEntity<>(errorDetails, org.springframework.http.HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<>(errorDetails, org.springframework.http.HttpStatus.CONFLICT);
 	}
 
 	@ExceptionHandler(ResourceNotFound.class)
