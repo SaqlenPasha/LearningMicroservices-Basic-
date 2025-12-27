@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.microservice.loans.constants.LoansConstants;
 import com.microservice.loans.dto.ErrorResponseDto;
+import com.microservice.loans.dto.LoansDto;
 import com.microservice.loans.dto.ResponseDto;
 import com.microservice.loans.service.LoansService;
 
